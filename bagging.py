@@ -12,7 +12,7 @@ class SimplifiedBaggingRegressor:
         self.indices_list = []
         data_length = len(data)
         for bag in range(self.num_bags):
-            indices=np.random.choice(data_lenght, size=data_lenght, replace=True)
+            indices=np.random.choice(data_length, size=data_length, replace=True)
             self.indices_list.append(indices)
         
     def fit(self, model_constructor, data, target):
