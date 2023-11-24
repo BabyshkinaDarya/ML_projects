@@ -31,7 +31,7 @@ class SimplifiedBaggingRegressor:
         assert len(set(list(map(len, self.indices_list)))) == 1, 'All bags should be of the same length!'
         assert list(map(len, self.indices_list))[0] == len(data), 'All bags should contain `len(data)` number of elements!'
         self.models_list = []
-        for bag in range(self.num_bags):
+        for indices in self.indices_list:
             model = model_constructor()
             data_bag, target_bag = data[indices], target[indices]
             self.models_list.append(model.fit(data_bag, target_bag)) # store fitted models here
