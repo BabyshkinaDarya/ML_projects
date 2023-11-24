@@ -12,7 +12,7 @@ class SimplifiedBaggingRegressor:
         self.indices_list = []
         data_length = len(data)
         for bag in range(self.num_bags):
-            indices=np.random.choice(data_length, size=data_length, replace=True)
+            indices = np.random.choice(data_length, size=data_length, replace=True)
             self.indices_list.append(indices)
         
     def fit(self, model_constructor, data, target):
@@ -43,7 +43,7 @@ class SimplifiedBaggingRegressor:
         '''
         Get average prediction for every object from passed dataset
         '''
-        predictions=[model.predict(data) for model in self.models_list]
+        predictions = [model.predict(data) for model in self.models_list]
         return np.mean(predictions, axis=0)
     
     def _get_oob_predictions_from_every_model(self):
@@ -54,7 +54,7 @@ class SimplifiedBaggingRegressor:
         list_of_predictions_lists = [[] for _ in range(len(self.data))]
         # Your Code Here
         for i, (model, indices) in enumerate(zip(self.models_list, self.indices_list)):
-            oob_indices=list(set(range(len(self.data)))-set(indices))
+            oob_indices = list(set(range(len(self.data)))-set(indices))
             oob_predictions=model.predict(self.data[oob_indices])
             for j, idx in enumerate(oob_indices):
                 list_of_predictions_lists[idx].append(oob_predictions[j])
