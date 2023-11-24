@@ -66,7 +66,7 @@ class SimplifiedBaggingRegressor:
         If object has been used in all bags on training phase, return None instead of prediction
         '''
         self._get_oob_predictions_from_every_model()
-        self.oob_predictions = # Your Code Here
+        self.oob_predictions = [np.mean(predictions) if len(predictions)>0 else None for predictions in self.list_of_predictions_lists]
         
         
     def OOB_score(self):
