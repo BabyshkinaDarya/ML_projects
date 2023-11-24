@@ -4,12 +4,12 @@ class SimplifiedBaggingRegressor:
     def __init__(self, num_bags, oob=False):
         self.num_bags = num_bags
         self.oob = oob
+        self.indices_list = []
         
     def _generate_splits(self, data: np.ndarray):
         '''
         Generate indices for every bag and store in self.indices_list list
         '''
-        self.indices_list = []
         data_length = len(data)
         for bag in range(self.num_bags):
             indices = np.random.choice(data_length, size=data_length, replace=True)
