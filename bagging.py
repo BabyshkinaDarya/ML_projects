@@ -1,4 +1,5 @@
 import numpy as np
+import pandas as pd
 
 class SimplifiedBaggingRegressor:
     def __init__(self, num_bags, oob=False):
