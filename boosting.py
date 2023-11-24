@@ -30,7 +30,7 @@ class SimplifiedBoostingRegressor:
         boosting_regressor = SimplifiedBoostingRegressor()    
         boosting_regressor.fit(DecisionTreeRegressor, X, y, 100, 0.5, 10)
         '''
-        new_targets = np.zeros_like(targers)
+        new_targets = targets
         self.models_list = []
         self.lr = lr
         self.loss_log = []
