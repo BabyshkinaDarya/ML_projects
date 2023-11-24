@@ -74,4 +74,4 @@ class SimplifiedBaggingRegressor:
         Compute mean square error for all objects, which have at least one prediction
         '''
         self._get_averaged_oob_predictions()
-        return np.mean((self.target[valid_indices]-np.array(self.oob_predictions)[valid_indices])**2)
+        return np.mean((self.target[valid_indices]-np.array(self.oob_predictions)[valid_indices])**3)
