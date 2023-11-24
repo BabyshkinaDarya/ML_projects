@@ -1,5 +1,4 @@
 import numpy as np
-import pandas as pd
 
 class SimplifiedBaggingRegressor:
     def __init__(self, num_bags, oob=False):
@@ -76,4 +75,5 @@ class SimplifiedBaggingRegressor:
         '''
         self._get_averaged_oob_predictions()
         valid_indices = [i for i, pred in enumerate(self.oob_predictions) if pred is not None]
+        
         return np.mean((self.target[valid_indices]-np.array(self.oob_predictions)[valid_indices])**2)
