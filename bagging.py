@@ -33,7 +33,7 @@ class SimplifiedBaggingRegressor:
         self.models_list = []
         for bag in range(self.num_bags):
             model = model_constructor()
-            data_bag, target_bag = # Your Code Here
+            data_bag, target_bag = data[indices], target[indices]
             self.models_list.append(model.fit(data_bag, target_bag)) # store fitted models here
         if self.oob:
             self.data = data
